@@ -10,7 +10,10 @@ It detects **new**, **removed**, and **modified** firewall policies based on the
 - 🔎 Detects **new policies** (only in the new config)  
 - 🗑️ Detects **removed policies** (only in the old config)  
 - ✏️ Detects **modified policies** (same UUID but different content)  
-- 📜 Shows differences directly in the terminal (Unified Diff format, similar to `git diff`)  
+- 📜 Shows differences directly in the terminal (Unified Diff format, similar to `git diff`)
+
+## Instructions
+Place the script together with the old Fortigate configuration (old.conf) and new Fortigate configuration (new.conf) in a folder and run the Python script.
 
 ## Example Output // UUID and Name of the Firewall Policy
 
