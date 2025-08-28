@@ -1,21 +1,39 @@
 # FortiGate Policy Diff
 
 A Python tool for comparing FortiGate firewall configuration files.  
-It detects **new**, **removed**, and **modified** firewall policies based on their **UUIDs** and provides a detailed **line-by-line diff** of modified policy blocks.
+It detects **new**, **removed**, and **modified** firewall policies based on their **UUIDs** and provides a detailed **attribute-level diff** of modified policy blocks.
 
 ## Features
 - 🔎 Detects **new policies** (only in the new config)  
 - 🗑️ Detects **removed policies** (only in the old config)  
 - ✏️ Detects **modified policies** (same UUID but different content)  
-- 📜 Shows differences directly in the terminal (Unified Diff format, similar to `git diff`)
+- 📊 Shows differences in a clear **table format**  
+- 📝 Exports the full diff to a text file (`policy_diff.txt`)  
 
 ## Instructions
-Place the script together with the old Fortigate configuration (old.conf) and new Fortigate configuration (new.conf) in a folder and run the Python script.
+1. Place the script together with the old FortiGate configuration (`old.conf`) and new FortiGate configuration (`new.conf`) in the same folder.  
+2. Run the script:  
 
-## Example Output // UUID and Name of the Firewall Policy
+```bash
+python policy_diff.py
+```
+3. Results will be printed in the terminal and written to policy_diff.txt.
 
-New policies:
-a1b2c3d4-1234-5678-90ab-cdef12345678 (Allow_DNS)
+Example Output // UUID and Name of the Firewall Policy
+New Policies
+UUID                                   Name
+------------------------------------  ---------------
+d0f74f64-fc41-51e9-2dfc-729f027e9979  Allow_DNS
 
-Removed policies:
-z9y8x7w6-9876-5432-10ab-cdef98765432 (Block_FTP)
+Removed Policies
+UUID                                   Name
+------------------------------------  ---------------
+a9c12b73-8d11-4f5d-bc24-12f4e98e10ab  Block_FTP
+
+Changed Policies
+UUID: e3f21d54-7b29-4c1d-8f6a-91b4d23a87ef (Web_Access)
+
+Field     Old        New
+--------  ---------  ---------
+action    deny       accept
+service   HTTP       HTTP,HTTPS
