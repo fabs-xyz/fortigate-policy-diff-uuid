@@ -1,0 +1,24 @@
+New Policies:
+UUID                                  Name      
+------------------------------------  ----------
+3e4f2b99-1c0a-5a44-9d3b-c5e4deeecccc  Allow-SNMP
+b7d1c332-9d72-5f8c-8bc9-fcd7d888bbbb  Allow-ICMP
+
+Removed Policies:
+UUID                                  Name      
+------------------------------------  ----------
+71bd8822-0d41-5611-945c-99c1feee8888  Allow-Ping
+84a0de44-8c11-53f5-ae2f-1a92dd01aaaa  Allow-FTP 
+
+Changed Policies:
+
+UUID: d0f74f64-fc41-51e9-2dfc-729f027e9979 (Allow-HTTP)
+Field    Old   New       
+-------  ----  ----------
+service  HTTP  HTTP,HTTPS
+
+
+UUID: a91bfc99-88d2-5e2a-8a2f-31a7f0b41223 (Allow-DNS)
+Field    Old  New             
+-------  ---  ----------------
+srcaddr  all  Internal-Network
